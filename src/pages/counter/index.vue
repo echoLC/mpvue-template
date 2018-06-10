@@ -1,6 +1,6 @@
 <template>
   <div class="counter-warp">
-    <p>Vuex counter：{{ count }}</p>
+    <p>Vuex counter：{{ counter }}</p>
     <p>
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
@@ -11,22 +11,20 @@
 </template>
 
 <script>
-// Use Vuex
-import store from './store'
+import { mapState, mapMutations } from 'vuex'
+import * as types from '@/store/mutations-type'
 
 export default {
   computed: {
-    count () {
-      return store.state.count
-    }
+    ...mapState('counter', {
+      counter: state => state.counter
+    })
   },
   methods: {
-    increment () {
-      store.commit('increment')
-    },
-    decrement () {
-      store.commit('decrement')
-    }
+    ...mapMutations('counter', {
+      increment: types.INCREMENT,
+      decrement: types.DECREMENT
+    })
   }
 }
 </script>

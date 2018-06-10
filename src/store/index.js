@@ -5,7 +5,7 @@ import counter from './module/counter'
 
 Vue.use(Vuex)
 
-const store = new Vuex({
+const store = new Vuex.Store({
   modules: {
     counter: {
       namespaced: true,
