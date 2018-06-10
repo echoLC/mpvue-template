@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+import wx from '@/utils/wx'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
+
+Vue.prototype.$wx = wx
 
 const app = new Vue({
   ...App,

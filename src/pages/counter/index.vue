@@ -25,6 +25,14 @@ export default {
       increment: types.INCREMENT,
       decrement: types.DECREMENT
     })
+  },
+  async created () {
+    await this.$wx.setStorage({
+      key: 'test',
+      data: 'test'
+    })
+    const storage = await this.$wx.getStorage({ key: 'test' })
+    console.log(storage.data)
   }
 }
 </script>
